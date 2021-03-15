@@ -65,8 +65,9 @@ function restore() {
         if [ "${PKEY}" == "" ]; then
           continue
         else
-          # Actually, we can use PKEY as-is. But we still need the only last part of the key.
-          TAR_FILE="${PKEY##*/}"
+          # Maintain the entire path including the ${CACHE_PREFIX}, otherwise we get a "file not 
+          # found" when attempting to extract the tar below
+          TAR_FILE="${PKEY}"
           BK_TAR_FOUND=true
           cache_hit "tar://${TAR_FILE} by using restore key: ${key}"
           break
