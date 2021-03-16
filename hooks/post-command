@@ -58,3 +58,5 @@ else
   echo "🚨 Cache is skipped because no cache key provided."
   exit 0
 fi
+
+rm -rf /var/lib/buildkite-agent/plugins/stevenlybeck-*
